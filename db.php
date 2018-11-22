@@ -21,13 +21,13 @@
   $dbhost = 'localhost';
   $dbuser = 'root';
   $dbpass = '';
-  $dbname = 'demo_db';
+  $dbname = 'videogame_db';
 
   // 1. Create a database connection
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
   // 2. Perform database query
-  $query = "SELECT * FROM things";
+  $query = "select * from Game, GameCopy, Member, Rental where (Game.gameID=GameCopy.gameID) AND (Member.memberID=Rental.memberID) AND (GameCopy.copyID = Rental.copyID)";
   $result_set = mysqli_query($connection, $query);
 ?>
 
@@ -40,11 +40,11 @@
       Database connection
     </h1>
     <table border="1">
-      <tr><td>Name</td><td>Price</td></tr>
+      <tr><td>Name</td><td>Price</td><td>Platform</td><td>Member</td><td>Date Borrowed</td></tr>
       <?php
         // 3. Use returned data (if any)
         while($thing = mysqli_fetch_assoc($result_set)) {
-          echo "<tr><td>" . $thing["name"] . "</td><td>" . $thing["price"] . "</td></tr>";
+          echo "<tr><td>" . $thing["name"] . "</td><td>" . $thing["price"] . "</td><td>" . $thing["platform"] . "</td><td>" . $thing["fname"] . "</td><td>" . $thing["dateBorrowed"] . "</td></tr>";
         }
       ?>
     </table>
