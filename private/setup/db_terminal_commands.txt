@@ -1,0 +1,15 @@
+to load mysql:
+sudo service mysql start
+
+to navigate to the files
+cd labproject/private/setup
+
+to setup the database:
+mysql -u root < setup.sql
+
+to experiment with the database in the terminal:
+mysql -u root
+
+to reset the database
+drop database videogame_db;
+    and then run the setup command again (saves having to restart the workspace)
