@@ -40,11 +40,11 @@
       Database connection
     </h1>
     <table border="1">
-      <tr><td>Name</td><td>Price</td><td>Platform</td><td>Member</td><td>Date Borrowed</td></tr>
+      <tr><td>Name</td><td>Genre</td><td>Platform</td><td>Member</td><td>Date Borrowed</td></tr>
       <?php
         // 3. Use returned data (if any)
         while($thing = mysqli_fetch_assoc($result_set)) {
-          echo "<tr><td>" . $thing["name"] . "</td><td>" . $thing["price"] . "</td><td>" . $thing["platform"] . "</td><td>" . $thing["fname"] . "</td><td>" . $thing["dateBorrowed"] . "</td></tr>";
+          echo "<tr><td>" . $thing["name"] . "</td><td>" . $thing["genre"] . "</td><td>" . $thing["platform"] . "</td><td>" . $thing["fname"] . "</td><td>" . $thing["dateBorrowed"] . "</td></tr>";
         }
       ?>
     </table>
