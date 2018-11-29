@@ -1,53 +1,51 @@
-
 body {
   color: #141412;
   line-height: 1.5;
-  margin: 0; }
-
+  margin: 0;
+}
 a {
   color: #333;
-  text-decoration: none; }
-  a:hover {
-    color: #e59285; }
-
-
-
-a:visited {
-  color: #333; }
-
-a:focus {
-  outline: thin dotted; }
-
+  text-decoration: none;
+}
 a:hover {
   color: #e59285;
-  outline: 0; }
-
+}
+a:visited {
+  color: #333;
+}
+a:focus {
+  outline: thin dotted;
+}
 a:hover {
-  text-decoration: underline; }
-
+  color: #e59285;
+  outline: 0;
+}
+a:hover {
+  text-decoration: underline;
+}
 h1 {
   font-size: 48px;
-  margin: 33px 0; }
-
+  margin: 33px 0;
+}
 h2 {
   font-size: 30px;
-  margin: 25px 0; }
-
+  margin: 25px 0;
+}
 h3 {
   font-size: 22px;
-  margin: 22px 0; }
-
+  margin: 22px 0;
+}
 p {
-  margin: 0 0 24px; }
-
+  margin: 0 0 24px;
+}
 textarea {
   font-size: 100%;
   margin: 0;
   max-width: 100%;
   vertical-align: baseline;
   overflow: auto;
-  vertical-align: top; }
-
+  vertical-align: top;
+}
 table {
   border-bottom: 1px solid #ededed;
   border-collapse: collapse;
@@ -55,42 +53,42 @@ table {
   font-size: 14px;
   line-height: 2;
   margin: 0 0 20px;
-  width: 100%; }
-  img {
-    max-width: 100%;
-  }
-  ul {
-    list-style: none; }
-
-    li > ul,
-    li > ol {
-      margin: 0; }
-      ul {
-        margin: 0;
-        padding: 0; }
-
-
-        ul {
-          list-style: none; }
-
-      nav ul,
-      nav ol {
-        list-style: none;
-        list-style-image: none; }
-
-      li > ul,
-      li > ol {
-        margin: 0; }
-
-      img {
-        -ms-interpolation-mode: bicubic;
-        border: 0;
-        vertical-align: middle; }
-
-        form {
-          margin: 0; }
-
-          textarea {
-            font-family: "Source Sans Pro", Helvetica, sans-serif; }
-            input {
-              line-height: normal; }
+  width: 100%;
+}
+img {
+  max-width: 100%;
+}
+ul {
+  list-style: none;
+}
+li > ul, li > ol {
+  margin: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+nav ul, nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+li > ul, li > ol {
+  margin: 0;
+}
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+  vertical-align: middle;
+}
+form {
+  margin: 0;
+}
+textarea {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+input {
+  line-height: normal;
+}
