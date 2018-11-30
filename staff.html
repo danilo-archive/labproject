@@ -7,6 +7,8 @@
 
 	<script src="js/jquery-3.2.1.slim.min.js" type="text/javascript">
 	</script>
+	<script src="js/popper.min.js" type="text/javascript">
+	</script>
 	<script src="js/bootstrap.min.js" type="text/javascript">
 	</script>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,8 +59,7 @@
 		<br>
 		<div class="panel heading">
 			<center>
-				<p>CURRENTLY LOGGED IN AS:</p>
-				<h1><i class="fa fa-hammer"></i> SECRETARY</h1>
+				<p>CURRENTLY LOGGED IN AS:</p><!--<h1><i class="fa fa-hammer"></i> SECRETARY</h1>-->
 				<h2>John Smith</h2>
 			</center>
 		</div>
@@ -73,12 +74,56 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h2 class="panel-title">USERS</h2>
-							</div>
+							</div><!-- START MODAL RENTAL  
+                                THE ID OF THIS MODAL IS REFERRING TO THE FIRST USER ONLY. THIS HAS TO BE GENERATED AUTOMATICALLY
+                            -->
+							<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="userModal1" role="dialog" tabindex="-1">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">MANAGE USER</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+										</div>
+										<div class="modal-body">
+											<br>
+											<!-- Availability Flag (change color to red when not available) -->
+											<div style=" text-align: center; font-size: 30px; color: blue;">
+												<b>SECRETARY</b>
+												<p>John Smith</p>
+											</div><br>
+											<br>
+											<br>
+											<!-- Start user type change option-->
+											<center>
+												<div style="font-size:18px;">
+													<div class="btn-group .col-md-6">
+														<button aria-expanded="false" aria-haspopup="true" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" type="button">CHANGE USER TYPE</button>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="#">Volunteer</a> <a class="dropdown-item" href="#">Member</a> <!-- ONLY SHOW SECRETARY IF POSSIBLE! -->
+															<div class="dropdown-divider"></div><a class="dropdown-item" href="#">Secretary</a>
+														</div>
+													</div>
+												</div>
+											</center><!-- End user type change option-->
+											<br>
+											<br>
+											<!-- Start ban user-->
+											<div>
+												<center>
+													<button aria-expanded="true" aria-haspopup="true" class="btn btn-danger" type="button">BAN USER</button>
+												</center>
+											</div><!-- End ban user-->
+										</div>
+										<div class="modal-footer">
+											<button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+										</div>
+									</div>
+								</div>
+							</div><!-- END MODAL RENTAL-->
 							<div class="panel-body">
 								<table class="table-users table">
 									<tbody>
 										<!-- START USER-->
-										<tr style="font-size:20px;">
+										<tr data-target="#userModal1" data-toggle="modal" style="font-size:20px;">
 											<td align="center" width="10"><i class="fa fa-2x fa-hammer"></i></td>
 											<td><b>JOHN SMITH</b><br></td>
 											<td>SECRETARY</td>
@@ -114,6 +159,9 @@
 								<h2 class="panel-title">RENTALS</h2>
 							</div>
 							<div class="panel-body">
+								<!-- START MODAL RENTAL  
+                                THE ID OF THIS MODAL IS REFERRING TO THE FIRST RENTAL ONLY. THIS HAS TO BE GENERATED AUTOMATICALLY
+                            -->
 								<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="resModalId1" role="dialog" tabindex="-1">
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
@@ -127,7 +175,7 @@
 													<i class="fas fa-flag"></i> <b>OVERDUE</b>
 													<p>10 days</p>
 												</div><br>
-												<div><img src="images/game_icons/14.jpg" style="width: 100%; height:100%;"></div><!-- Start info table --><br>
+												<div><img src="images/game_icons/14.jpg" style="width: 100%; height:100%;"></div><br>
 												<br>
 												<!-- Start rental Details-->
 												<div style="font-size:18px;">
@@ -146,16 +194,16 @@
 												<div>
 													<h5>EDIT RENTAL &nbsp;&nbsp;<i class="fas fa-calendar"></i></h5><br>
 													<ul class="list-group .list-group-flush">
-														<li class="list-group-item"><b>RENTAL END</b> <input name="end of rental" type="date" required="required"></li>
+														<li class="list-group-item"><b>RENTAL END</b> <input name="end of rental" required="required" type="date"></li>
 													</ul>
 												</div><!-- End links to reviews-->
 											</div>
 											<div class="modal-footer">
-												<button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button> <button class="btn btn-primary" type="button">Save changes</button>
+												<button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
 											</div>
 										</div>
 									</div>
-								</div>
+								</div><!-- END MODAL RENTAL-->
 								<table class="table-users table">
 									<tbody>
 										<!-- START rental-->
@@ -164,12 +212,7 @@
 											<td><b>BROFORCE</b><br>
 											<span style="color:red; font-size:15px;"><b>OVERDUE:</b> 15 DAYS</span><br></td>
 											<td>SAL FRANCIS</td>
-										</tr><!-- rental MODAL 
-                                            (CHANGE ID HERE AND IN data-target"" !!)
-                                            This should also go in a separate file with php,possibly together with the entire
-                                            product -->
-										<!-- END rental MODAL-->
-										<!-- END rental-->
+										</tr><!-- END rental-->
 										<!-- START rental-->
 										<tr style="font-size:20px;">
 											<td align="center" width="10"><i class="fa fa-2x fa-gamepad"></i> <span style="color:black; font-size:20px;"><i class="fab fa-xbox">XBOX</i></span></td>
