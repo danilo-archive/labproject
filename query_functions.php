@@ -7,4 +7,6 @@ function count_genre($id){
   $result = get_games_genre($id);
   mysqli_num_rows($result);
 }
+function get_rating($game) {}
+  
  ?>
