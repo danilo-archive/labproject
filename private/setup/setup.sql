@@ -5,6 +5,7 @@ create table Game(
     gameID int(11) unsigned auto_increment primary key,
     name varchar(255) not null,
     artwork varchar(255) not null,
+    genre varchar(30),
     rating int(1),
     description varchar(255),
     releaseDate date,
@@ -38,8 +39,8 @@ create table Rental (
     foreign key (memberID) references Member(memberID)
 );
 
-insert into Game(gameID, name, artwork, rating, description, releaseDate, developer, price)
-    values(1, "MarioKart", "someimg.txt", 5, "this is a description lol", "2003-01-02", "Nintendo", "49");
+insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
+    values(1, "MarioKart", "someimg.txt", "Racing", 5, "this is a description lol", "2003-01-02", "Nintendo", "49");
     
 insert into GameCopy(copyID, gameID, platform, damageValue)
     values(1, 1, "Nintendo Switch", 42.50);
