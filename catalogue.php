@@ -15,6 +15,8 @@ require_once('query_functions.php');
 	</script>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
+	
+	<?php $db = db_connect(); ?>
 </head>
 <body>
 	<!-- Main wrapper -->
@@ -222,5 +224,6 @@ require_once('query_functions.php');
 			</div>
 		</div>
 	</div>
+	<? php db_disconnect($db); ?>
 </body>
 </html>
