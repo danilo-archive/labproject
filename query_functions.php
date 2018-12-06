@@ -1,14 +1,14 @@
 <?php
 function load_all_games() {
-	gloabl $db;
+	global $db;
 	$games = "SELECT name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game";
 	$load_all_games_set = mysqli_query(videogame_db, $games);
 	return $load_all_games_set;
 }
-function get_games_genre($genre) { 
-	gloabl $db;
+function get_games_genre($genre) {
+	global $db;
 	$game_by_genre = "SELECT name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID AND genre = "{$genre}"";
-	$game_genre_set = mysqlil_query($db, $game_by_genre);
+	$game_genre_set = mysqli_query($db, $game_by_genre);
 	return $game_genre_set;
 
 }
@@ -26,5 +26,5 @@ function get_game_console($console) {
 	return $game_console_set;
 }
 
-  
+
 ?>

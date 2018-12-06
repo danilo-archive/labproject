@@ -1,5 +1,6 @@
 <?php
 require_once('query_functions.php');
+require_once('gameinfo.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,7 @@ require_once('query_functions.php');
 	</script>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
-	
+
 	<?php $db = db_connect(); ?>
 </head>
 <body>
@@ -73,17 +74,18 @@ require_once('query_functions.php');
 							<aside class="wedget__categories poroduct--cat">
 								<h3 class="wedget__title">Filter By Genre</h3>
 								<ul>
+									<?php $genre = "All"; ?>
 									<li>
-										<a href="#">Action <span><?php echo count_genre("Action") ?></span></a>
+										<a onclick='<?php $genre = "Action"?>' href="#">Action <span><?php echo count_genre("Action") ?></span></a>
 									</li>
 									<li>
-										<a href="#">Adventure <span><?php echo count_genre("Adventure") ?></span></a>
+										<a onclick='<?php $genre = "Adventure"?>' href="#">Adventure <span><?php echo count_genre("Adventure") ?></span></a>
 									</li>
 									<li>
-										<a href="#">Indie<span><?php echo count_genre("Indie") ?></span></a>
+										<a onclick='<?php $genre = "Indie"?>' href="#">Indie<span><?php echo count_genre("Indie") ?></span></a>
 									</li>
 									<li>
-										<a href="#">Co-op <span><?php echo count_genre("Co-op") ?></span></a>
+										<a onclick='<?php $genre = "Co-op"?>' href="#">Co-op <span><?php echo count_genre("Co-op") ?></span></a>
 									</li>
 								</ul>
 							</aside>
@@ -117,39 +119,27 @@ require_once('query_functions.php');
 							<div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
 								<div class="row">
 									<!-- Start Single Product -->
-									<ul class="rating flex-column">
-										<li class="on">
-											<a class="fab fa-xbox"></a>
-										</li>
-										<li class="on">
-											<a class="fab fa-playstation"></a>
-										</li>
-										<li class="on">
-											<a class="fa fa-desktop"></a>
-										</li>
-									</ul>
-									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-										<div class="product__thumb">
-											<!--Change data target to reflect the right details modal-->
-											<a class="first__img" data-target="#modalID" data-toggle="modal" href="single-product.html"><img alt="product image" src="images/game_icons/7.jpg"></a>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Grand Theft Auto V</a></h4>
-											<ul class="prize d-flex">
-												<li>£5.00 per day</li>
-											</ul>
-											<div class="action">
-												<div class="product__hover">
-													<ul class="rating d-flex">
-														<li class="on"><i class="fa fa-star"></i></li>
-														<li class="on"><i class="fa fa-star"></i></li>
-														<li class="on"><i class="fa fa-star"></i></li>
-														<li class="on"><i class="fa fa-star"></i></li>
-														<li class="on"><i class="fa fa-star"></i></li>
-													</ul>
-												</div>
-											</div>
-										</div><!-- Start Product details Modal
+									<?php
+									if($genre === "All") {
+									$result = load_all_games();
+								  }
+									elseif ($genre ==="Action") {
+									$result = get_games_genre("Action")
+									}
+									elseif ($genre ==="Adventure") {
+									$result = get_games_genre("Adventure")
+									}
+									elseif ($genre ==="Indie") {
+									$result = get_games_genre("Indie")
+									}
+									elseif ($genre ==="Co-op") {
+									$result = get_games_genre("Co-op")
+									}
+									while($game = mysqli_fetch_assoc($result)) {
+    							load_one_game($game);
+									}
+									?>
+									<!-- Start Product details Modal
                                             (CHANGE ID HERE AND IN data-target"" !!)
                                             This should also go in a separate file with php,possibly together with the entire
                                             product
