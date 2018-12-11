@@ -1,8 +1,10 @@
+
+<!DOCTYPE html>
 <?php
 require_once('query_functions.php');
 require_once('gameinfo.php');
+    require_once('functions.php');
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -124,16 +126,16 @@ require_once('gameinfo.php');
 									$result = load_all_games();
 								  }
 									elseif ($genre ==="Action") {
-									$result = get_games_genre("Action")
+									$result = get_games_genre("Action");
 									}
 									elseif ($genre ==="Adventure") {
-									$result = get_games_genre("Adventure")
+									$result = get_games_genre("Adventure");
 									}
 									elseif ($genre ==="Indie") {
-									$result = get_games_genre("Indie")
+									$result = get_games_genre("Indie");
 									}
 									elseif ($genre ==="Co-op") {
-									$result = get_games_genre("Co-op")
+									$result = get_games_genre("Co-op");
 									}
 									while($game = mysqli_fetch_assoc($result)) {
     							load_one_game($game);
@@ -214,6 +216,6 @@ require_once('gameinfo.php');
 			</div>
 		</div>
 	</div>
-	<? php db_disconnect($db); ?>
+	<?php db_disconnect($db); ?>
 </body>
 </html>

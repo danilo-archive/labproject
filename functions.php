@@ -1,14 +1,33 @@
 <?php
-	require_once('db.php');
-	function db_connect() {
-		$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-		return $connection;
-	}
 
-	function db_disconnect($connection) {
-		if(isset($connection)) {
-			mysqli_close($connection);
-		}
-	}
+function url_for($script_path) {
+  // add the leading '/' if not present
+  if($script_path[0] != '/') {
+    $script_path = "/" . $script_path;
+  }
+  return WWW_ROOT . $script_path;
+}
+
+function u($string="") {
+  return urlencode($string);
+}
+
+function raw_u($string="") {
+  return rawurlencode($string);
+}
+
+function h($string="") {
+  return htmlspecialchars($string);
+}
+
+function error_404() {
+  header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
+  exit();
+}
+
+function error_500() {
+  header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal Server Error");
+  exit();
+}
 
 ?>
