@@ -43,4 +43,15 @@
         }
     }
 
+    function game_is_available($game) {
+        global $db;
+        $query = "SELECT * FROM GameCopy WHERE {$game['name']} == GameCopy.name";
+        $result = mysqli_query($db, $query);
+        if(!$result) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
     ?>
