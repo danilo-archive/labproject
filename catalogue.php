@@ -40,13 +40,13 @@ require_once('gameinfo.php');
 									<a href="index.html" style="color: white; font-size:150%;">Home</a>
 								</li>
 								<li class="drop">
-									<a href="catalogue.html" style="color: white; font-size:150%;">Catalogue</a>
+									<a href="catalogue.php" style="color: white; font-size:150%;">Catalogue</a>
 								</li>
 							</ul>
 						</nav>
 					</div>
 					<div style="position:absolute; top:50px; right:50px;">
-						<a href="login.html"><i class="fa fa-user" style="color :#ddd;font-size:40px"></i></a>
+						<a href="login.php"><i class="fa fa-user" style="color :#ddd;font-size:40px"></i></a>
 					</div>
 				</div>
 			</div>
