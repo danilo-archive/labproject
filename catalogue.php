@@ -19,7 +19,7 @@ require_once('gameinfo.php');
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
 
-	<?php $db = db_connect(); ?>
+	<?php $connection = db_connect(); ?>
 </head>
 <body>
 	<!-- Main wrapper -->
@@ -78,16 +78,16 @@ require_once('gameinfo.php');
 								<ul>
 									<?php $genre = "All"; ?>
 									<li>
-										<a onclick='<?php $genre = "Action"?>' href="#">Action <span><?php echo count_genre("Action") ?></span></a>
+										<a onclick='<?php get_games_by_genre("Action")?>' href="#">Action <span><?php echo count_genre("Action") ?></span></a>
 									</li>
 									<li>
-										<a onclick='<?php $genre = "Adventure"?>' href="#">Adventure <span><?php echo count_genre("Adventure") ?></span></a>
+										<a onclick='<?php get_games_by_genre("Adventure")?>' href="#">Adventure <span><?php echo count_genre("Adventure") ?></span></a>
 									</li>
 									<li>
-										<a onclick='<?php $genre = "Indie"?>' href="#">Indie<span><?php echo count_genre("Indie") ?></span></a>
+										<a onclick='<?php get_games_by_genre("Indie")?>' href="#">Indie<span><?php echo count_genre("Indie") ?></span></a>
 									</li>
 									<li>
-										<a onclick='<?php $genre = "Co-op"?>' href="#">Co-op <span><?php echo count_genre("Co-op") ?></span></a>
+										<a onclick='<?php get_games_by_genre("Co-op")?>' href="#">Co-op <span><?php echo count_genre("Co-op") ?></span></a>
 									</li>
 								</ul>
 							</aside>
@@ -122,23 +122,9 @@ require_once('gameinfo.php');
 								<div class="row">
 									<!-- Start Single Product -->
 									<?php
-									if($genre === "All") {
 									$result = load_all_games();
-								  }
-									elseif ($genre ==="Action") {
-									$result = get_games_genre("Action");
-									}
-									elseif ($genre ==="Adventure") {
-									$result = get_games_genre("Adventure");
-									}
-									elseif ($genre ==="Indie") {
-									$result = get_games_genre("Indie");
-									}
-									elseif ($genre ==="Co-op") {
-									$result = get_games_genre("Co-op");
-									}
 									while($game = mysqli_fetch_assoc($result)) {
-    							load_one_game($game);
+                                        load_one_game($game);
 									}
 									?>
 									<!-- Start Product details Modal
@@ -216,6 +202,6 @@ require_once('gameinfo.php');
 			</div>
 		</div>
 	</div>
-	<?php db_disconnect($db); ?>
+	<?php db_disconnect($connection); ?>
 </body>
 </html>
