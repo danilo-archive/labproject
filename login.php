@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<?php require_once('submit_login_form.php');
+//if(isset($_POST['submitted']))
+//{
+//    if($fgmembersite->Login())
+//    {
+//        $fgmembersite->RedirectToURL("staff.html");
+//    }
+//}
+?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -32,7 +41,7 @@
 									<a href="index.html" style="color: white; font-size:150%;">Home</a>
 								</li>
 								<li class="drop">
-									<a href="catalogue.html" style="color: white; font-size:150%;">Catalogue</a>
+									<a href="catalogue.php" style="color: white; font-size:150%;">Catalogue</a>
 								</li>
 							</ul>
 						</nav>
@@ -48,7 +57,8 @@
 							<h2 class="bradcaump-title" style="font-size:500%;">Login</h2>
 						</div>
 					</div>
-					<form>
+                    <?php Login(); ?>
+					<form action='login.php' method="post">>
 						<br>
 						<br>
 						<br>
@@ -59,8 +69,9 @@
 							<input class="input100" name="pass" placeholder="Password" type="password"> <span class="focus-input100"></span> <span class="symbol-input100"></span>
 						</div>
 						<div class="container-login100-form-btn">
-							<button class="login100-form-btn">Login</button>
+                        <input class="login100-form-btn" type="submit" name="submit" value="Login">
 						</div>
+                        <?php ?>
 						<form></form>
 					</form>
 				</div>
