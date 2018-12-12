@@ -1,63 +1,35 @@
 <?php
 
-  // ---
-  // The code in this file is taken (with only minor changes) from
-  // PHP with MySQL Essential Training: 1 The Basics
-  // by Kevin Skoglund
-  //
-  // This code aims to demonstrate the steps needed to set up a connection to a database.
-  // It is intended to be used as an exercise to show how to set up a database connection
-  // between your PHP application and a MySQL database within a CodeAnywhere container.
-  // Reusing this file in its current form in your applications would be ill-advised as
-  // you should not combine this many concerns in a single file.
-  // ---
 
   // Switch on all errors
   error_reporting(E_ALL);
   ini_set('display_errors', TRUE);
   ini_set('display_startup_errors', TRUE);
 
-  // Credentials
-  $dbhost = 'localhost';
-  $dbuser = 'root';
-  $dbpass = '';
-  $dbname = 'videogame_db';
+    ob_start(); // output buffering is turned on
 
-  // 1. Create a database connection
-  $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+    // Assign file paths to PHP constants
+    // __FILE__ returns the current path to this file
+    // dirname() returns the path to the parent directory
+    define("PRIVATE_PATH", dirname(__FILE__));
+    define("PROJECT_PATH", dirname(PRIVATE_PATH));
+    define("PUBLIC_PATH", PROJECT_PATH . '/public');
+    define("SHARED_PATH", PRIVATE_PATH . '/shared');
 
-  // 2. Perform database query
-  $query = "select * from Game, GameCopy, Member, Rental where (Game.gameID=GameCopy.gameID) AND (Member.memberID=Rental.memberID) AND (GameCopy.copyID = Rental.copyID)";
-  $result_set = mysqli_query($connection, $query);
-?>
+    // Assign the root URL to a PHP constant
+    // * Do not need to include the domain
+    // * Use same document root as webserver
+    // * Can set a hardcoded value:
+    // define("WWW_ROOT", '/~kevinskoglund/globe_bank/public');
+    // define("WWW_ROOT", '');
+    // * Can dynamically find everything in URL up to "/public"
+    $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
+    $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
+    define("WWW_ROOT", $doc_root);
 
-<html>
-  <head>
-    <title>Database connection</title>
-  </head>
-  <body>
-    <h1>
-      Database connection
-    </h1>
-    <table border="1">
-      <tr><td>Name</td><td>Genre</td><td>Platform</td><td>Member</td><td>Date Borrowed</td></tr>
-      <?php
-        // 3. Use returned data (if any)
-        while($thing = mysqli_fetch_assoc($result_set)) {
-          echo "<tr><td>" . $thing["name"] . "</td><td>" . $thing["genre"] . "</td><td>" . $thing["platform"] . "</td><td>" . $thing["fname"] . "</td><td>" . $thing["dateBorrowed"] . "</td></tr>";
-        }
-      ?>
-    </table>
+    require_once('functions.php');
+    require_once('query_functions.php');
 
+    $db = db_connect();
 
-
-  </body>
-</html>
-
-<?php
-  // 4. Release returned data
-  mysqli_free_result($result_set);
-
-  // 5. Close database connection
-  mysqli_close($connection);
-?>
+    ?>
