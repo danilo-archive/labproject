@@ -79,7 +79,7 @@ insert into Game(gameID, name, artwork, genre, rating, description, releaseDate,
 "2011–11-10", "Bethesda Game Studios", "20");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
-    values(5, "DARK SOULS™ III", "5.jpg", "FromSoftware", 3, 
+    values(5, "DARK SOULS™ III", "5.jpg", "RPG", 3, 
 "Dark Souls continues to push the boundaries with the latest, ambitious chapter in the critically-acclaimed and genre-defining series. Prepare yourself and Embrace The Darkness!",
 "2016–04-11", "FromSoftware", "20");
 

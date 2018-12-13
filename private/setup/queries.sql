@@ -13,4 +13,5 @@ where Game.gameID = GameCopy.gameID AND genre = "...";
 select name, platform, artwork, genre, rating, description, releaseDate, developer from GameCopy, Game 
 where Game.gameID = GameCopy.gameID AND console = "...";
 
-/*the query is the same depending on the console - you can edit this via php too*/
+/**show games by genre*/
+SELECT genre, COUNT(*) FROM Game GROUP BY genre;
