@@ -15,3 +15,4 @@ where Game.gameID = GameCopy.gameID AND console = "...";
 
 /**show games by genre*/
 SELECT genre, COUNT(*) FROM Game GROUP BY genre;
+

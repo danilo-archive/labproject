@@ -4,6 +4,8 @@ sudo service mysql start
 to navigate to the files
 cd labproject/private/setup
 
+cd private/setup
+
 to setup the database:
 mysql -u root < setup.sql
 
