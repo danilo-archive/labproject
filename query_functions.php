@@ -3,7 +3,7 @@
     global $db;
     function load_all_games() {
         global $db;
-        $games = "SELECT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game";
+        $games = "SELECT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game GROUP BY name";
         $load_all_games_set = mysqli_query($db, $games);
         return $load_all_games_set;
         release_result($load_all_games_set);
@@ -12,7 +12,7 @@
     function get_genre_set($genre) {
         global $db;
 
-        $game_by_genre = "SELECT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID AND genre = '{$genre}'";
+        $game_by_genre = "SELECT DISTINCT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID AND genre = '{$genre}' GROUP BY name";
         $game_genre_set = mysqli_query($db, $game_by_genre);
         return $game_genre_set;
        //release_result($game_genre_set);
@@ -42,12 +42,16 @@
         release_result($game_console_set);
 
     }
-    function get_games_by_genre($genre) {
-        $result = get_genre_set($genre);
+    function get_games($filter) {
+        if($filter==""){
+            $result = load_all_games();
+        }
+        else{
+            $result = get_genre_set($filter);
+        }
         while($game = mysqli_fetch_assoc($result)) {
             load_one_game($game);
         }
-        release_result($result);
     }
 
     function game_is_available($id) {

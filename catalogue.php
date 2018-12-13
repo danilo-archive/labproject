@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <?php
 require_once('query_functions.php');
@@ -84,16 +82,16 @@ require_once('gameinfo.php');
 								<h3 class="wedget__title">Filter By Genre</h3>
 								<ul>
 									<li>
-<a onclick='' href=''>Action <span><?php $genre='Action'; echo count_genre($genre); ?></span></a>
+<a onclick='' href='catalogue.php?filter=Action'>Action <span><?php $genre='Action'; echo count_genre($genre); ?></span></a>
 									</li>
 									<li>
-                                    <a onclick='' href="#">Adventure <span><?php $genre='Adventure'; echo count_genre($genre) ?></span></a>
+                                    <a onclick='' href='catalogue.php?filter=Adventure'>Adventure <span><?php $genre='Adventure'; echo count_genre($genre) ?></span></a>
 									</li>
 									<li>
-                                    <a onclick='' href="#">Indie<span><?php $genre='Indie'; echo count_genre($genre); ?></span></a>
+                                    <a onclick='' href='catalogue.php?filter=Indie'>Indie<span><?php $genre='Indie'; echo count_genre($genre); ?></span></a>
 									</li>
 									<li>
-                                    <a onclick='' href="#">Co-op <span><?php $genre='Co-op'; echo count_genre($genre); ?></span></a>
+                                    <a onclick='' href='catalogue.php?filter=Co-op'>Co-op <span><?php $genre='Co-op'; echo count_genre($genre); ?></span></a>
 									</li>
 								</ul>
 							</aside>
@@ -128,12 +126,13 @@ require_once('gameinfo.php');
 								<div class="row" >
 									<!-- Start Single Product -->
 									<?php
-
-                                            $result = load_all_games();
-
-                                            while($game = mysqli_fetch_assoc($result)) {
-                                                load_one_game($game);
-                                            }
+                                        if(isset($_GET['filter'])){
+                                            $filter =$_GET['filter'];
+                                        }
+                                        else{
+                                            $filter = "";
+                                        }
+                                        get_games($filter);
 
 									?>
 									<!-- Start Product details Modal
