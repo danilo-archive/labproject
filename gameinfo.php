@@ -21,7 +21,7 @@ echo "    <!--Change data target to reflect the right details modal-->";
 
     echo "    <a class='first__img' data-target='#modalID' data-toggle='modal' href='single-product.html'><img alt='product image' src='images/game_icons/{$image}'></a>";
     if(!game_is_available($game)){
-        echo "<style> img{ filter: grayscale(100%)}</style>";
+        echo "<style> img.gameicon{ filter: grayscale(100%)}</style>";
     }
 echo "  </div>";
 echo "  <div class='product__content content--center'>";
