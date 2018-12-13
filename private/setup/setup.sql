@@ -33,11 +33,13 @@ create table Rental (
     copyID int(11) unsigned not null,
     memberID int(11) unsigned not null,
     dateBorrowed date,
-    dateDue date,
+    dateDue date, 
     
     foreign key (copyID) references GameCopy(copyID),
     foreign key (memberID) references Member(memberID)
 );
+
+
 
 
 insert into Member(memberId, fname, lname, email)
@@ -426,3 +428,62 @@ values(98 , 5 , 'PC' , 0.15888654272398894);
 insert into GameCopy(copyID, gameID, platform, damageValue)
 values(99 , 14 , 'PC' , 0.16692750163757686);
 
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(0 , 20 , 4 , 2018-10-15 , 2018-12-02);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(1 , 87 , 2 , 2018-10-15 , 2018-11-22);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(2 , 76 , 4 , 2018-10-15 , 2018-12-10);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(3 , 1 , 3 , 2018-10-15 , 2018-12-08);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(4 , 38 , 2 , 2018-10-15 , 2018-11-24);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(5 , 87 , 1 , 2018-10-15 , 2018-11-27);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(6 , 77 , 2 , 2018-10-15 , 2018-11-29);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(7 , 83 , 3 , 2018-10-15 , 2018-12-01);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(8 , 69 , 4 , 2018-10-15 , 2018-11-18);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(9 , 31 , 5 , 2018-10-15 , 2018-11-28);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(10 , 68 , 4 , 2018-10-15 , 2018-12-10);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(11 , 23 , 3 , 2018-10-15 , 2018-11-15);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(12 , 72 , 2 , 2018-10-15 , 2018-12-12);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(13 , 47 , 4 , 2018-10-15 , 2018-11-25);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(14 , 99 , 5 , 2018-10-15 , 2018-12-10);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(15 , 42 , 1 , 2018-10-15 , 2018-12-03);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(16 , 31 , 4 , 2018-10-15 , 2018-12-10);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(17 , 47 , 1 , 2018-10-15 , 2018-11-27);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(18 , 8 , 3 , 2018-10-15 , 2018-11-22);
+
+insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
+values(19 , 24 , 1 , 2018-10-15 , 2018-12-12);
