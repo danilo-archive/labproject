@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <?php
 require_once('query_functions.php');
@@ -7,6 +8,11 @@ require_once('gameinfo.php');
 ?>
 <html>
 <head>
+  <!--  <script language="javascript" type="text/javascript">
+    function clearBox(elementID) {
+        document.getElementById(elementID).innerHTML = "";
+    }-->
+    </script>
 	<meta charset="utf-8">
 	<title>Catalogue | Indigo Team</title><!-- Icons and fonts-->
 	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
@@ -46,7 +52,8 @@ require_once('gameinfo.php');
 						</nav>
 					</div>
 					<div style="position:absolute; top:50px; right:50px;">
-						<a href="login.php"><i class="fa fa-user" style="color :#ddd;font-size:40px"></i></a>
+						<a href="login.php
+"><i class="fa fa-user" style="color :#ddd;font-size:40px"></i></a>
 					</div>
 				</div>
 			</div>
@@ -76,18 +83,17 @@ require_once('gameinfo.php');
 							<aside class="wedget__categories poroduct--cat">
 								<h3 class="wedget__title">Filter By Genre</h3>
 								<ul>
-									<?php $genre = "All"; ?>
 									<li>
-										<a onclick='<?php get_games_by_genre("Action")?>' href="#">Action <span><?php echo count_genre("Action") ?></span></a>
+<a onclick='' href=''>Action <span><?php $genre='Action'; echo count_genre($genre); ?></span></a>
 									</li>
 									<li>
-										<a onclick='<?php get_games_by_genre("Adventure")?>' href="#">Adventure <span><?php echo count_genre("Adventure") ?></span></a>
+                                    <a onclick='' href="#">Adventure <span><?php $genre='Adventure'; echo count_genre($genre) ?></span></a>
 									</li>
 									<li>
-										<a onclick='<?php get_games_by_genre("Indie")?>' href="#">Indie<span><?php echo count_genre("Indie") ?></span></a>
+                                    <a onclick='' href="#">Indie<span><?php $genre='Indie'; echo count_genre($genre); ?></span></a>
 									</li>
 									<li>
-										<a onclick='<?php get_games_by_genre("Co-op")?>' href="#">Co-op <span><?php echo count_genre("Co-op") ?></span></a>
+                                    <a onclick='' href="#">Co-op <span><?php $genre='Co-op'; echo count_genre($genre); ?></span></a>
 									</li>
 								</ul>
 							</aside>
@@ -119,13 +125,16 @@ require_once('gameinfo.php');
 						</div><!--SORT BY PLATFORM DROPDOWN END-->
 						<div class="tab__container">
 							<div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
-								<div class="row">
+								<div class="row" >
 									<!-- Start Single Product -->
 									<?php
-									$result = load_all_games();
-									while($game = mysqli_fetch_assoc($result)) {
-                                        load_one_game($game);
-									}
+
+                                            $result = load_all_games();
+
+                                            while($game = mysqli_fetch_assoc($result)) {
+                                                load_one_game($game);
+                                            }
+
 									?>
 									<!-- Start Product details Modal
                                             (CHANGE ID HERE AND IN data-target"" !!)

@@ -1,5 +1,6 @@
 <?php
 function load_one_game($game){
+    $id = $game['gameID'];
   $title = $game['name'];
   $image = $game['artwork'];
   $rating = $game['rating'];
@@ -18,11 +19,11 @@ echo "</ul>";
 echo "<div class='product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12'>";
 echo "  <div class='product__thumb'>";
 echo "    <!--Change data target to reflect the right details modal-->";
-    echo "    <a class='first__img' data-target='#modalID' data-toggle='modal' href='single-product.html'><img class='gameicon' style='' alt='product image' src='images/game_icons/{$image}'></a>";
+    echo "    <a class='first__img' data-target='#modalID' data-toggle='modal' href='single-product.html'>";
+    echo add_grey_filter($id, $image);
 
-   if(!game_is_available($game)){
-       echo "<style> img.gameicon{ opacity: 0.5; filter: grayscale(100%)}</style>";
-   }
+
+
 echo "  </div>";
 echo "  <div class='product__content content--center'>";
 echo "    <h4><a href='single-product.html'>$title</a></h4>";
@@ -40,5 +41,6 @@ echo "        </ul>";
 echo "      </div>";
 echo "    </div>";
 echo "  </div>";
+    echo " </div>";
 }
 ?>
