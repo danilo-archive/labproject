@@ -4,17 +4,7 @@ function load_one_game($game){
   $image = $game['artwork'];
   $rating = $game['rating'];
   $platform = $game['platform'];
-    echo "<ul class='rating flex-column'>";
-echo "  <li class='on'>";
-echo "    <a class='fab fa-xbox'></a>";
-echo "  </li>";
-echo "  <li class='on'>";
-echo "    <a class='fab fa-playstation'></a>";
-echo "  </li>";
-echo "  <li class='on'>";
-echo "    <a class='fa fa-desktop'></a>";
-echo "  </li>";
-echo "</ul>";
+
 echo "<div class='product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12'>";
 echo "  <div class='product__thumb'>";
 echo "    <!--Change data target to reflect the right details modal-->";
@@ -40,5 +30,7 @@ echo "        </ul>";
 echo "      </div>";
 echo "    </div>";
 echo "  </div>";
+echo "  </div>";
+
 }
 ?>

@@ -40,11 +40,6 @@ select GameCopy.copyID, gameID, platform, damageValue from GameCopy,
  where GameCopy.copyID = AvailableGames.copyID;
 
 
-
-
-
-
-
-=======
 SELECT gameID FROM Game NATURAL JOIN GameCopy GROUP BY gameID;
->>>>>>> a29a7434ad5bccbab2933a405a1df3cc11c25257
+
+SELECT gameID FROM Game NATURAL JOIN GameCopy GROUP BY gameID;
