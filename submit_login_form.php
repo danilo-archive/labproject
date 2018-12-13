@@ -18,7 +18,7 @@
 //        }
 //    }
 //    }
-    
+
     function verify_details(){
         if(is_post_request()) {
             $email = $_POST["email"] ?? '';
@@ -61,18 +61,18 @@ function Login()
 //    $_SESSION[$this->GetLoginSessionVar()] = $email;
 //
 //    return true;
-   
+
     $msg = '';
-    
+
     if (isset($_POST['email']) && !empty($_POST['pass'])) {
-        
+
         if ($_POST['email'] == 'admin' &&
             $_POST['pass'] == '1234') {
             $_SESSION['valid'] = true;
             $_SESSION['timeout'] = time();
             $_SESSION['username'] = 'admin';
-            
-            RedirectToURL('staff.html');
+
+            RedirectToURL('staff.php');
         }
         else {
             $msg = 'Wrong username or password';
@@ -127,7 +127,7 @@ function GetSelfScript()
     return htmlentities($_SERVER['PHP_SELF']);
 }
 
-    
+
 function RedirectToURL($url)
 {
     header("Location: {$url}");

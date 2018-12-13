@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php require_once 'db.php'?>
 <head>
 	<meta charset="utf-8">
 	<title>Secretary Page | Indigo Team</title><!-- Icons and fonts-->

@@ -71,7 +71,6 @@
 						<div class="container-login100-form-btn">
                         <input class="login100-form-btn" type="submit" name="submit" value="Login">
 						</div>
-                        <?php ?>
 						<form></form>
 					</form>
 				</div>
