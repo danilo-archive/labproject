@@ -19,21 +19,6 @@ SELECT genre, COUNT(*) FROM Game GROUP BY genre;
 select GameCopy.copyID, gameID, platform, damageValue from GameCopy, Rental
 where Rental.copyID=GameCopy.copyID;
 
-select * from GameCopy;
-
-select distinct a.c1, a.c2 
-from a
-where not exists (
-    select 1 from b
-    where b.c1 = a.c1
-      and b.c2 = a.c2
-)
-
-select GameCopy.copyID, gameID, platform, damageValue from GameCopy, Rental
-where Rental.copyID=GameCopy.copyID
-EXCEPT
-select GameCopy.copyID, gameID, platform, damageValue from GameCopy;
-
 
 /*query to select all available GameCopies i.e. the query will list the 
 copyIDs for all game copies that have NOT been rented*/
@@ -60,3 +45,6 @@ select GameCopy.copyID, gameID, platform, damageValue from GameCopy,
 
 
 
+=======
+SELECT gameID FROM Game NATURAL JOIN GameCopy GROUP BY gameID;
+>>>>>>> a29a7434ad5bccbab2933a405a1df3cc11c25257
