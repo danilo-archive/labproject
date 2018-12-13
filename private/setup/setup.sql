@@ -40,8 +40,6 @@ create table Rental (
 );
 
 
-use videogame_db;
-
 insert into Member(memberId, fname, lname, email)
     values (1, "Hannah", "Paulding", "hannah.paulding@email.com");
 
