@@ -7,7 +7,7 @@ create table Game(
     artwork varchar(255) not null,
     genre varchar(30),
     rating int(1),
-    description varchar(255),
+    description varchar(1000),
     releaseDate date,
     developer varchar(255),
     price int(10)
@@ -61,72 +61,72 @@ insert into Member(memberId, fname, lname, email)
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(1, "Counter-Strike: Global Offensive", "1.jpg", "Action", 5, 
 "Counter-Strike: Global Offensive (CS: GO) will expand upon the team-based action gameplay that it pioneered when it was launched 14 years ago. CS: GO features new maps, characters, and weapons and delivers updated versions of the classic CS content (de_dust2, etc.)",
-"2012–08-21", "Valve", "15");
+"20120821", "Valve", "15");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(2, "Europa Universalis IV", "2.jpg", "Strategy", 4, 
 "The empire building game Europa Universalis IV gives you control of a nation to guide through the years in order to create a dominant global empire. Rule your nation through the centuries, with unparalleled freedom, depth and historical accuracy.",
-"2013–08-13", "Paradox Development Studio", "40");
+"20130813", "Paradox Development Studio", "40");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(3, "DARK SOULS™: Prepare To Die Edition", "3.jpg", "Action", 5, 
 "Dark Souls will be the most deeply challenging game you play this year. Can you live through a million deaths and earn your legacy?",
-"2012–08-24", "FromSoftware", "40");
+"20120824", "FromSoftware", "40");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(4, "The Elder Scrolls V: Skyrim", "4.jpg", "RPG", 1, 
 "EPIC FANTASY REBORN The next chapter in the highly anticipated Elder Scrolls saga arrives from the makers of the 2006 and 2008 Games of the Year, Bethesda Game Studios. Skyrim reimagines and revolutionizes the open-world fantasy epic, bringing to life a complete virtual world open for you to explore any way you choose.",
-"2011–11-10", "Bethesda Game Studios", "20");
+"20111110", "Bethesda Game Studios", "20");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(5, "DARK SOULS™ III", "5.jpg", "RPG", 3, 
 "Dark Souls continues to push the boundaries with the latest, ambitious chapter in the critically-acclaimed and genre-defining series. Prepare yourself and Embrace The Darkness!",
-"2016–04-11", "FromSoftware", "20");
+"20160411", "FromSoftware", "20");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(6, "Victoria II", "6.jpg", "Strategy", 4, 
 "Carefully guide your nation from the era of absolute monarchies in the early 19th century, through expansion and colonization, to finally become a truly great power by the dawn of the 20th century. Victoria II is a grand strategy game played during the colonial era of the 19th century, where the player takes control of a country, guiding...",
-"2010-08-30", "Paradox Development Studio", "20");
+"20100830", "Paradox Development Studio", "20");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(7, "Grand Theft Auto V", "7.jpg", "Action", 2, 
 "Los Santos is a city of bright lights, long nights and dirty secrets, and they don’t come brighter, longer or dirtier than in GTA Online: After Hours. The party starts now.",
-"2015-04-13", "Rockstar North", "60");
+"20150413", "Rockstar North", "60");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(8, "BioShock Infinite", "8.jpg", "Action", 1, 
 "Indebted to the wrong people, with his life on the line, veteran of the U.S. Cavalry and now hired gun, Booker DeWitt has only one opportunity to wipe his slate clean. He must rescue Elizabeth, a mysterious girl imprisoned since childhood and locked up in the flying city of Columbia.",
-"2013-03-25", "Irrational Games", "30");
+"20130325", "Irrational Games", "30");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(9, "Borderlands 2", "9.jpg", "Co-op", 3, 
 "A new era of shoot and loot is about to begin. Play as one of four new vault hunters facing off against a massive new world of creatures, psychos and the evil mastermind, Handsome Jack. Make new friends, arm them with a bazillion weapons and fight alongside them in 4 player co-op on a relentless quest for revenge and redemption across the undiscovered and unpredictable living planet.",
-"2012-09-18", "Gearbox Software", "20");
+"20120918", "Gearbox Software", "20");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(10, "PAYDAY: The Heist", "10.jpg", "Co-op", 5, 
 "Take on the role of a hardened career criminal executing intense, dynamic heists in constant pursuit of the next “big score”",
-"2011-10-20", "OVERKILL Software", "15");
+"20111020", "OVERKILL Software", "15");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(11, "Rust", "11.jpg", "Adventure", 3, 
 "The only aim in Rust is to survive. To do this you will need to overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat. Protect yourself from other players, and kill them for meat. Create alliances with other players and form a town. Do whatever it takes to survive.",
-"2018-02-08", "Facepunch Studios", "35");
+"20180208", "Facepunch Studios", "35");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(12, "Arma 3", "12.jpg", "Action", 4, 
 "Experience true combat gameplay in a massive military sandbox. Deploying a wide variety of single- and multiplayer content, over 20 vehicles and 40 weapons, and limitless opportunities for content creation, this is the PC’s premier military game. Authentic, diverse, open - Arma 3 sends you to war.",
-"2013-10-12", "Bohemia Interactive", "40");
+"20131012", "Bohemia Interactive", "40");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(13, "South Park™: The Stick of Truth™", "13.jpg", "RPG", 2, 
 "From the perilous battlefields of the fourth-grade playground, a young hero will rise, destined to be South Park’s savior. From the creators of South Park, Trey Parker and Matt Stone, comes an epic quest to become… cool. Introducing South Park™: The Stick of Truth™.For a thousand years, the battle has been waged.",
-"2014-03-03", "Obsidian Entertainment", "30");
+"20140303", "Obsidian Entertainment", "30");
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
     values(14, "Broforce", "14.jpg", "Co-op", 3, 
 "When evil threatens the world, the world calls on Broforce - an under-funded, over-powered paramilitary organization dealing exclusively in excessive force. Brace your loins with up to four players to run ‘n’ gun as dozens of different bros and eliminate the opposing terrorist forces that threaten our way of life.",
-"2015-10-15", "Free Lives", "15");
+"20151015", "Free Lives", "15");
 
 insert into GameCopy(copyID, gameID, platform, damageValue)
 values(100 , 9 , 'XBOX' , 0.31411589526964256);
