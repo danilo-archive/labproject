@@ -18,10 +18,10 @@ echo "</ul>";
 echo "<div class='product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12'>";
 echo "  <div class='product__thumb'>";
 echo "    <!--Change data target to reflect the right details modal-->";
-    echo "    <a class='first__img' data-target='#modalID' data-toggle='modal' href='single-product.html'><img alt='product image' src='images/game_icons/{$image}'></a>";
+    echo "    <a class='first__img' data-target='#modalID' data-toggle='modal' href='single-product.html'><img class = 'gameicon' alt='product image' src='images/game_icons/{$image}'></a>";
 
     if(!game_is_available($game)){
-        echo "<style> img{ filter: grayscale(100%)}</style>";
+        echo "<style> img.gameicon{ filter: grayscale(100%)}</style>";
     }
 
 echo "  </div>";
