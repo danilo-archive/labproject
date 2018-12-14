@@ -45,12 +45,14 @@
     function get_games($filter) {
         if($filter==""){
             $result = load_all_games();
+
         }
         else{
             $result = get_genre_set($filter);
         }
         while($game = mysqli_fetch_assoc($result)) {
             load_one_game($game);
+            load_details($game);
         }
     }
 
@@ -63,6 +65,25 @@
         $query .= "  where Rental.copyID=GameCopy.copyID)) as AvailableGames";
         $query .= "where GameCopy.copyID = AvailableGames.copyID";
         $query .= "AND gameID = '{$id}'";
+        $result = mysqli_query($db, $query);
+        if(is_null($result)) {
+            $boolean = false;
+        }
+        else {
+            $boolean = true;
+        }
+        release_result($result);
+        return $boolean;
+    }
+    function gamecopy_is_available($id) {
+        global $db;
+        $query = "select GameCopy.copyID, gameID, platform, damageValue from GameCopy,";
+        $query .= "(select GameCopy.copyID from GameCopy";
+        $query .= "where GameCopy.copyID not in";
+        $query .= "(select GameCopy.copyID from GameCopy, Rental";
+        $query .= "  where Rental.copyID=GameCopy.copyID)) as AvailableGames";
+        $query .= "where GameCopy.copyID = AvailableGames.copyID";
+        $query .= "AND GameCopy.copyID = '{$id}'";
         $result = mysqli_query($db, $query);
         if(is_null($result)) {
             $boolean = false;
