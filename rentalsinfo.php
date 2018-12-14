@@ -4,7 +4,7 @@
         $id = $user['memberID'];
         $name = $user['fname'].' '.$user['lname'];
         $type = $user['role'];
-        echo"<tr data-target='#{$id}}' data-toggle='modal' style='font-size:20px;'>";
+        echo"<tr data-target='#{$id}}' data-toggle='modal' style='font-size:20px;'</tr>";
         echo"<td align='center' width='10'><i class='fa fa-2x fa-hammer'></i></td>";
         echo"<td><b>{$name}</b><br></td>";
         echo"<td>{$type}</td>";
@@ -20,9 +20,9 @@ function load_one_rental($rental){
     echo"<td align='center' width='10'><i class='fa fa-2x fa-gamepad'></i> <span style='color:black; font-size:20px;'><i class='fab fa-playstation'>PS4</i></span></td>";
     echo"<td><b>{$game}</b><br></td>";
     echo"<td>{$memberfname} {$memberlname}</td>";
-    echo" </tr><";
+    echo" </tr>";
     }
-    
+
     function load_rental_details($rental) {
         echo"<div aria-hidden='true' aria-labelledby='exampleModalLabel' class='modal fade' id='resModalId1' role='dialog' tabindex='-1'>";
         echo"<div class='modal-dialog' role='document'>";
@@ -54,4 +54,3 @@ function load_one_rental($rental){
         echo"</div><!-- End links to reviews--></div><div class='modal-footer'><button class='btn btn-secondary' data-dismiss='modal' type='button'>Close</button></div></div></div></div>";
     }
 ?>
-

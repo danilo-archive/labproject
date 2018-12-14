@@ -5,18 +5,23 @@
     function load_all_games() {
         global $db;
         $query = "SELECT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game GROUP BY name";
-        $load_all_games_set = mysqli_query($db, $query);
+        if(!$query){}
+          else{$load_all_games_set = mysqli_query($db, $query);
         return $load_all_games_set;
         release_result($load_all_games_set);
+      }
 
     }
 
     function load_all_users() {
         global $db;
         $query = "SELECT memberID, fname, lname, role FROM Member";
+        if(!$query){}
+          else{
         $load_all_users_set = mysqli_query($db, $query);
         return $load_all_users_set;
         release_result($load_all_users_set);
+      }
     }
 
     function load_all_rentals() {
@@ -31,7 +36,6 @@
 
     function get_genre_set($genre) {
         global $db;
-
         $game_by_genre = "SELECT DISTINCT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID AND genre = '{$genre}' GROUP BY name";
         $game_genre_set = mysqli_query($db, $game_by_genre);
         return $game_genre_set;
