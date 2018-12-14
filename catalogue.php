@@ -82,17 +82,20 @@ require_once('gameinfo.php');
 								<h3 class="wedget__title">Filter By Genre</h3>
 								<ul>
 									<li>
-<a onclick='' href='catalogue.php?filter=Action'>Action <span><?php $genre='Action'; echo count_genre($genre); ?></span></a>
+                                    <a onclick='' href='catalogue.php?filter=Action'>Action <span><?php $genre='Action'; echo count_genre($genre); ?></span></a>
 									</li>
 									<li>
                                     <a onclick='' href='catalogue.php?filter=Adventure'>Adventure <span><?php $genre='Adventure'; echo count_genre($genre) ?></span></a>
 									</li>
 									<li>
-                                    <a onclick='' href='catalogue.php?filter=Indie'>Indie<span><?php $genre='Indie'; echo count_genre($genre); ?></span></a>
+                                    <a onclick='' href='catalogue.php?filter=Strategy'>Strategy<span><?php $genre='Strategy'; echo count_genre($genre); ?></span></a>
 									</li>
 									<li>
                                     <a onclick='' href='catalogue.php?filter=Co-op'>Co-op <span><?php $genre='Co-op'; echo count_genre($genre); ?></span></a>
 									</li>
+                                    <li>
+                                    <a onclick='' href='catalogue.php?filter=RPG'>RPG <span><?php $genre='RPG'; echo count_genre($genre); ?></span></a>
+                                    </li>
 								</ul>
 							</aside>
 						</div>
@@ -135,71 +138,8 @@ require_once('gameinfo.php');
                                         get_games($filter);
 
 									?>
-									<!-- Start Product details Modal
-                                            (CHANGE ID HERE AND IN data-target"" !!)
-                                            This should also go in a separate file with php,possibly together with the entire
-                                            product
-                                        -->
-										<div aria-hidden="true" aria-labelledby="modalLabel" class="modal fade" id="modalID" role="dialog" tabindex="-1">
-											<div class="modal-dialog" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h5 class="modal-title" id="modalLabel">Grand Theft Auto V</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-													</div>
-													<div class="modal-body">
-														<br>
-														<!-- Availability Flag (change color to red when not available) -->
-														<div style=" text-align: center; font-size: 30px; color: green;">
-															<i class="fas fa-flag"></i> <b>AVAILABLE</b>
-														</div><br>
-														<div><img src="images/game_icons/7.jpg" style="width: 100%; height:100%;"></div><!-- Start info table -->
-														<div>
-															<table class="table">
-																<thead>
-																	<tr>
-																		<th scope="col">#ID</th>
-																		<th scope="col">Year</th>
-																		<th scope="col">Publisher</th>
-																		<th scope="col">Genre</th>
-																		<th scope="col">Platforms</th>
-																	</tr>
-																</thead>
-																<tbody>
-																	<tr>
-																		<th scope="row">1</th>
-																		<td>2016</td>
-																		<td>Rockstar Games</td>
-																		<td>Action</td>
-																		<td>XBOX, PS4, PC</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div><!-- End info table-->
-														<br>
-														<br>
-														<!-- Start Description-->
-														<div>
-															<h5>THE GAME</h5><br>
-															<p style="font-size:18px;">Los Santos is a city of bright lights, long nights and dirty secrets, and they don’t come brighter, longer or dirtier than in GTA Online: After Hours. The party starts now.</p>
-														</div><!-- End Description-->
-														<br>
-														<br>
-														<!-- Start links to reviews-->
-														<div>
-															<h5>REVIEW LINKS <i class="fas fa-link"></i></h5><br>
-															<ul class="list-group .list-group-flush">
-																<li class="list-group-item">
-																	<a href="https://uk.ign.com/games/grand-theft-auto-v" style="font-size:16px;" target="_blank"><b>IGN &nbsp;&nbsp;&nbsp;</b> <i class="fas fa-star-half-alt"></i></a>
-																</li>
-															</ul>
-														</div><!-- End links to reviews-->
-													</div>
-													<div class="modal-footer">
-														<button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
-													</div>
-												</div>
-											</div>
-										</div><!-- End Product details Modal-->
+
+
 										<!-- End Single Product -->
 									</div>
 								</div>
