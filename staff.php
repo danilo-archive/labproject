@@ -1,11 +1,10 @@
+<?php require_once('db.php')?>
 <!DOCTYPE html>
 <html>
-<?php require_once 'db.php'?>
 <head>
 	<meta charset="utf-8">
 	<title>Secretary Page | Indigo Team</title><!-- Icons and fonts-->
 	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet"><!-- Stylesheets -->
-
 	<script src="js/jquery-3.2.1.slim.min.js" type="text/javascript">
 	</script>
 	<script src="js/popper.min.js" type="text/javascript">
@@ -108,11 +107,7 @@
 											<br>
 											<br>
 											<!-- Start ban user-->
-											<div>
-												<center>
-													<button aria-expanded="true" aria-haspopup="true" class="btn btn-danger" type="button">BAN USER</button>
-												</center>
-											</div><!-- End ban user-->
+											<!-- End ban user-->
 										</div>
 										<div class="modal-footer">
 											<button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
@@ -123,26 +118,7 @@
 							<div class="panel-body">
 								<table class="table-users table">
 									<tbody>
-										<!-- START USER-->
-										<tr data-target="#userModal1" data-toggle="modal" style="font-size:20px;">
-											<td align="center" width="10"><i class="fa fa-2x fa-hammer"></i></td>
-											<td><b>JOHN SMITH</b><br></td>
-											<td>SECRETARY</td>
-										</tr><!-- END USER-->
-										<!-- START USER-->
-										<tr style="font-size:20px;">
-											<td align="center" width="10"><i class="fa fa-2x fa-user"></i></td>
-											<td><b>JAKE BLACK</b><br>
-											<span style="color:green; font-size:20px;"><i class="fab fa-font-awesome">NOTHING OVERDUE</i></span></td>
-											<td>USER</td>
-										</tr><!-- END USER-->
-										<!-- START USER-->
-										<tr style="font-size:20px;">
-											<td align="center" width="10"><i class="fa fa-2x fa-user"></i></td>
-											<td><b>SAL FRANCIS</b><br>
-											<span style="color:red; font-size:20px;"><i class="fab fa-font-awesome">BANNED FOR: 10 DAYS</i></span></td>
-											<td>USER</td>
-										</tr><!-- END USER-->
+                                    <?php get_users();?>
 									</tbody>
 								</table>
 							</div>
@@ -163,63 +139,11 @@
 								<!-- START MODAL RENTAL
                                 THE ID OF THIS MODAL IS REFERRING TO THE FIRST RENTAL ONLY. THIS HAS TO BE GENERATED AUTOMATICALLY
                             -->
-								<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="resModalId1" role="dialog" tabindex="-1">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="exampleModalLabel">BROFORCE - SAL FRANCIS</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-											</div>
-											<div class="modal-body">
-												<br>
-												<!-- Availability Flag (change color to red when not available) -->
-												<div style=" text-align: center; font-size: 30px; color: red;">
-													<i class="fas fa-flag"></i> <b>OVERDUE</b>
-													<p>10 days</p>
-												</div><br>
-												<div><img src="images/game_icons/14.jpg" style="width: 100%; height:100%;"></div><br>
-												<br>
-												<!-- Start rental Details-->
-												<div style="font-size:18px;">
-													<ul class="list-group .list-group-flush">
-														<li style="list-style: none; display: inline">
-															<h5>DETAILS</h5><br>
-														</li>
-														<li class="list-group-item"><b>RENTAL START</b>: &nbsp;10:12:55 &nbsp;&nbsp; 10-10-2018</li>
-														<li class="list-group-item"><b>RENTAL END</b>: &nbsp;&nbsp; &nbsp; 10:12:55 &nbsp;&nbsp; 15-11-2018</li>
-														<li class="list-group-item"><b>DAYS BEFORE BAN</b>: 7</li>
-													</ul>
-												</div><!-- End Details-->
-												<br>
-												<br>
-												<!-- Start settings manipulation-->
-												<div>
-													<h5>EDIT RENTAL &nbsp;&nbsp;<i class="fas fa-calendar"></i></h5><br>
-													<ul class="list-group .list-group-flush">
-														<li class="list-group-item"><b>RENTAL END</b> <input name="end of rental" required="required" type="date"></li>
-													</ul>
-												</div><!-- End links to reviews-->
-											</div>
-											<div class="modal-footer">
-												<button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
-											</div>
-										</div>
-									</div>
-								</div><!-- END MODAL RENTAL-->
+								<!-- END MODAL RENTAL-->
 								<table class="table-users table">
 									<tbody>
 										<!-- START rental-->
-										<tr data-target="#resModalId1" data-toggle="modal" style="font-size:20px;">
-											<td align="center" width="10"><i class="fa fa-2x fa-gamepad"></i> <span style="color:black; font-size:20px;"><i class="fab fa-playstation">PS4</i></span></td>
-											<td><b>BROFORCE</b><br>
-											<span style="color:red; font-size:15px;"><b>OVERDUE:</b> 15 DAYS</span><br></td>
-											<td>SAL FRANCIS</td>
-										</tr><!-- END rental-->
-										<!-- START rental-->
-										<tr style="font-size:20px;">
-											<td align="center" width="10"><i class="fa fa-2x fa-gamepad"></i> <span style="color:black; font-size:20px;"><i class="fab fa-xbox">XBOX</i></span></td>
-											<td><b>ROCKET LEAGUE</b><br>
-											<span style="color:green; font-size:15px;"><b>ON TIME:</b> 24 DAYS LEFT</span><br></td>
-											<td>JAKE BLACK</td>
+                                        <?php get_rentals();?>
 										</tr><!-- END rental-->
 									</tbody>
 								</table>
