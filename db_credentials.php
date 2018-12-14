@@ -6,4 +6,4 @@
     define("DB_NAME", "videogame_db");
 
 
-?>
+    ?>

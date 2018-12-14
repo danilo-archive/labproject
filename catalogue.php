@@ -100,7 +100,7 @@ require_once('gameinfo.php');
 							</aside>
 						</div>
 					</div><!--SORT BY GENRE SIDEBAR START-->
-					<!--main catalogue page body start-->
+						<!--main catalogue page body start-->
 					<div class="col-lg-9 col-12 order-1 order-lg-2">
 						<!--SORT BY PLATFORM DROPDOWN START-->
 						<div class="row">

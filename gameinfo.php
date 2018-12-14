@@ -114,7 +114,12 @@ echo "        </ul>";
 echo "      </div>";
 echo "    </div>";
 echo "  </div>";
-    echo " </div>";
+
+
+
+echo "  </div>";
+
+
 }
 ?>
 //<!-- Start Product details Modal
