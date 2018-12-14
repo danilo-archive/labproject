@@ -2,7 +2,7 @@ to load mysql:
 sudo service mysql start
 
 to navigate to the files
-cd labproject/private/setup
+cd danilo-delbusso-labproject/private/setup
 
 cd private/setup
 
