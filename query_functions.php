@@ -15,7 +15,7 @@
         $game_by_genre = "SELECT DISTINCT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID AND genre = '{$genre}' GROUP BY name";
         $game_genre_set = mysqli_query($db, $game_by_genre);
         return $game_genre_set;
-       //release_result($game_genre_set);
+        release_result($game_genre_set);
 
 
     }
