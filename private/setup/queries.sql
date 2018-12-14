@@ -43,3 +43,22 @@ select GameCopy.copyID, gameID, platform, damageValue from GameCopy,
 SELECT gameID FROM Game NATURAL JOIN GameCopy GROUP BY gameID;
 
 SELECT gameID FROM Game NATURAL JOIN GameCopy GROUP BY gameID;
+
+/*returns the list of all rentals and the complementary information*/
+SELECT rentalID, Member.memberID, GameCopy.copyID, Game.name, fname, lname, artwork, dateBorrowed, dateDue
+FROM Game, GameCopy, Rental, Member
+WHERE Game.gameID=GameCopy.gameID AND GameCopy.copyID=Rental.copyID AND Member.memberId=Rental.memberID;
+
+/*returns a list of all members*/
+SELECT memberID, fname, lname, role
+FROM Member;
+
+/*update query for members changing roles*/
+UPDATE Member
+SET role = "(new_role)"
+WHERE memberID = (member's ID);
+
+/*for example:*/
+UPDATE Member
+SET role = "Secretary"
+WHERE memberID = 5;

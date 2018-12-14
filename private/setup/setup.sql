@@ -25,7 +25,8 @@ create table Member (
     memberID int(11) unsigned auto_increment primary key,
     fname varchar(50) not null,
     lname varchar(50) not null,
-    email varchar(254) not null
+    email varchar(254) not null,
+    role varchar(15)
 );
 
 create table Rental (
@@ -42,20 +43,20 @@ create table Rental (
 
 
 
-insert into Member(memberId, fname, lname, email)
-    values (1, "Hannah", "Paulding", "hannah.paulding@email.com");
+insert into Member(memberId, fname, lname, email, role)
+    values (1, "Hannah", "Paulding", "hannah.paulding@email.com", "Member");
 
-insert into Member(memberId, fname, lname, email)
-    values (2, "Danilo", "Del Busso", "danilo@email.com");
+insert into Member(memberId, fname, lname, email, role)
+    values (2, "Danilo", "Del Busso", "danilo@email.com", "Member");
 
-insert into Member(memberId, fname, lname, email)
-    values (3, "Maren-Sofie", "Stubo", "maren-sofie@email.com");
+insert into Member(memberId, fname, lname, email, role)
+    values (3, "Maren-Sofie", "Stubo", "maren-sofie@email.com", "Member");
 
-insert into Member(memberId, fname, lname, email)
-    values (4, "Mahum", "Hashmi", "mahum@email.com");
+insert into Member(memberId, fname, lname, email, role)
+    values (4, "Mahum", "Hashmi", "mahum@email.com", "Member");
 
-insert into Member(memberId, fname, lname, email)
-    values (5, "John", "Smith", "john@email.com");
+insert into Member(memberId, fname, lname, email, role)
+    values (5, "John", "Smith", "john@email.com", "Secretary");
 
 
 insert into Game(gameID, name, artwork, genre, rating, description, releaseDate, developer, price)
@@ -430,13 +431,7 @@ values(99 , 14 , 'PC' , 0.16692750163757686);
 
 
 insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(20 , 48 , 4 , '20181015' , '20181201');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
 values(1 , 1 , 1 , '20181015' , '20181206');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(2 , 99 , 3 , '20181015' , '20181208');
 
 insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
 values(3 , 55 , 1 , '20181015' , '20181201');
@@ -457,19 +452,7 @@ insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
 values(8 , 66 , 5 , '20181015' , '20181212');
 
 insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(9 , 5 , 1 , '20181015' , '20181209');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(10 , 86 , 1 , '20181015' , '20181115');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(11 , 34 , 2 , '20181015' , '20181116');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
 values(12 , 92 , 4 , '20181015' , '20181125');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(13 , 12 , 2 , '20181015' , '20181119');
 
 insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
 values(14 , 50 , 2 , '20181015' , '20181210');
@@ -477,14 +460,3 @@ values(14 , 50 , 2 , '20181015' , '20181210');
 insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
 values(15 , 96 , 2 , '20181015' , '20181120');
 
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(16 , 24 , 4 , '20181015' , '20181211');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(17 , 17 , 4 , '20181015' , '20181125');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(18 , 36 , 4 , '20181015' , '20181203');
-
-insert into Rental(rentalID, copyId, memberID, dateBorrowed, dateDue)
-values(19 , 53 , 1 , '20181015' , '20181124');
