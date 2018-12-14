@@ -1,16 +1,11 @@
-<!DOCTYPE html>
 <?php
 require_once('query_functions.php');
 require_once('gameinfo.php');
-    require_once('functions.php');
+require_once('functions.php');
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-  <!--  <script language="javascript" type="text/javascript">
-    function clearBox(elementID) {
-        document.getElementById(elementID).innerHTML = "";
-    }-->
-    </script>
 	<meta charset="utf-8">
 	<title>Catalogue | Indigo Team</title><!-- Icons and fonts-->
 	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
@@ -22,7 +17,6 @@ require_once('gameinfo.php');
 	</script>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
-
 	<?php $connection = db_connect(); ?>
 </head>
 <body>
@@ -50,8 +44,7 @@ require_once('gameinfo.php');
 						</nav>
 					</div>
 					<div style="position:absolute; top:50px; right:50px;">
-						<a href="login.php
-"><i class="fa fa-user" style="color :#ddd;font-size:40px"></i></a>
+						<a href="login.php"><i class="fa fa-user" style="color :#ddd;font-size:40px"></i></a>
 					</div>
 				</div>
 			</div>
@@ -100,7 +93,7 @@ require_once('gameinfo.php');
 							</aside>
 						</div>
 					</div><!--SORT BY GENRE SIDEBAR START-->
-						<!--main catalogue page body start-->
+					<!--main catalogue page body start-->
 					<div class="col-lg-9 col-12 order-1 order-lg-2">
 						<!--SORT BY PLATFORM DROPDOWN START-->
 						<div class="row">
@@ -127,7 +120,6 @@ require_once('gameinfo.php');
 						<div class="tab__container">
 							<div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
 								<div class="row" >
-									<!-- Start Single Product -->
 									<?php
                                         if(isset($_GET['filter'])){
                                             $filter =$_GET['filter'];
@@ -136,11 +128,7 @@ require_once('gameinfo.php');
                                             $filter = "";
                                         }
                                         get_games($filter);
-
 									?>
-
-
-										<!-- End Single Product -->
 									</div>
 								</div>
 							</div>

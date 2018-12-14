@@ -1,23 +1,41 @@
 <?php
     require_once('db.php');
+    require_once('rentalsinfo.php');
     global $db;
     function load_all_games() {
         global $db;
-        $games = "SELECT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game GROUP BY name";
-        $load_all_games_set = mysqli_query($db, $games);
+        $query = "SELECT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game GROUP BY name";
+        $load_all_games_set = mysqli_query($db, $query);
         return $load_all_games_set;
         release_result($load_all_games_set);
 
     }
+
+    function load_all_users() {
+        global $db;
+        $query = "SELECT memberID, fname, lname, role FROM Member";
+        $load_all_users_set = mysqli_query($db, $query);
+        return $load_all_users_set;
+        release_result($load_all_users_set);
+    }
+
+    function load_all_rentals() {
+        global $db;
+        $query = "SELECT rentalID, Member.memberID, GameCopy.copyID, Game.name, fname, lname, artwork, dateBorrowed, dateDue FROM Game, GameCopy, Rental, Member WHERE Game.gameID=GameCopy.gameID AND GameCopy.copyID=Rental.copyID AND Member.memberId=Rental.memberID";
+        $load_all_users_set = mysqli_query($db, $query);
+        return $load_all_users_set;
+        release_result($load_all_users_set);
+    }
+
+
+
     function get_genre_set($genre) {
         global $db;
 
         $game_by_genre = "SELECT DISTINCT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID AND genre = '{$genre}' GROUP BY name";
         $game_genre_set = mysqli_query($db, $game_by_genre);
         return $game_genre_set;
-       //release_result($game_genre_set);
-
-
+        release_result($game_genre_set);
     }
 
     function count_genre($genre){
@@ -36,12 +54,13 @@
     function get_game_console($console) {
         global $db;
 
-        $game_console = "SELECT name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID AND console = {$console}";
+        $game_console = "SELECT name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID AND console = '{$console}'";
         $game_console_set = mysqli_query($db, $game_console);
         return $game_console_set;
         release_result($game_console_set);
 
     }
+
     function get_games($filter) {
         if($filter==""){
             $result = load_all_games();
@@ -52,7 +71,39 @@
         }
         while($game = mysqli_fetch_assoc($result)) {
             load_one_game($game);
-            load_details($game);
+            load_game_details($game);
+        }
+    }
+
+    function get_users() {
+            $result = load_all_users();
+        if(!$result){}
+        else{
+        while($user = mysqli_fetch_assoc($result)) {
+            load_one_user($user);
+        }
+    }
+    }
+
+    function get_rentals() {
+        $result = load_all_rentals();
+        if(!$result){}
+        else{
+        while($rental = mysqli_fetch_assoc($result)) {
+            load_one_rental($rental);
+        }
+    }
+    }
+
+    function change_user($userID, $role) {
+        global $db;
+        $query = "UPDATE Member SET role = '{$role}' WHERE memberID = '{$userID}';";
+        $query_successful = mysqli_query($db, $query);
+        if(!$query_successful) {
+            return false;
+        }
+        else {
+            return true;
         }
     }
 
@@ -75,6 +126,7 @@
         release_result($result);
         return $boolean;
     }
+
     function gamecopy_is_available($id) {
         global $db;
         $query = "select GameCopy.copyID, gameID, platform, damageValue from GameCopy,";
@@ -98,19 +150,6 @@
         if(!$result_set==false){
         mysqli_free_result($result_set);
         }
-    }
-    function count_by_genre($genre){
-        global $db;
-        $query = "SELECT genre, COUNT(*) FROM Game GROUP BY '{genre}'";
-        $result = mysqli_query($db, $query);
-        $count = mysqli_fetch_assoc($result);
-        if($result==false){
-            return 0;
-        }
-        else{
-            return $count['COUNT(*)'];
-        }
-        release_result($result);
     }
     function add_grey_filter($id, $image){
         if(game_is_available($id)==false){

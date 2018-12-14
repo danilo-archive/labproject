@@ -1,20 +1,12 @@
+<?php require_once('submit_login_form.php');?>
+<?php  Login(); ?>
 <!DOCTYPE html>
-<?php require_once('submit_login_form.php');
-//if(isset($_POST['submitted']))
-//{
-//    if($fgmembersite->Login())
-//    {
-//        $fgmembersite->RedirectToURL("staff.html");
-//    }
-//}
-?>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>Login | Indigo Team</title><!-- Icons and fonts-->
 	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800" rel="stylesheet"><!-- Stylesheets -->
-
 	<script src="js/jquery-3.2.1.slim.min.js" type="text/javascript">
 	</script>
 	<script src="js/bootstrap.min.js" type="text/javascript">
@@ -57,7 +49,6 @@
 							<h2 class="bradcaump-title" style="font-size:500%;">Login</h2>
 						</div>
 					</div>
-                    <?php Login(); ?>
 					<form action='login.php' method="post">>
 						<br>
 						<br>
