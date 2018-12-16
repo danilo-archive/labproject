@@ -4,7 +4,7 @@
     global $db;
     function load_all_games() {
         global $db;
-        $query = "SELECT GameCopy.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game GROUP BY name";
+        $query = "SELECT GameCopy.copyID, Game.gameID, name, platform, artwork, genre, rating, description, releaseDate, developer FROM GameCopy, Game WHERE Game.gameID = GameCopy.gameID GROUP BY ANY_VALUE(Game.gameID)";
         if(!$query){}
           else{$load_all_games_set = mysqli_query($db, $query);
         return $load_all_games_set;
