@@ -1,6 +1,10 @@
 <?php
 
-    require_once('db_production_credentials.php');
+    //use these credentials for the awardspace hosting
+    //require_once('db_production_credentials.php');
+    
+    //use these credentials for localhost through codenvy
+    require_once('db_credentials.php');
 
     function db_connect() {
         $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
