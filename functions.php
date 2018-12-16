@@ -1,5 +1,9 @@
 <?php
 
+    //use these credentials for the awardspace hosting
+    //require_once('db_production_credentials.php');
+    
+    //use these credentials for localhost through codenvy
     require_once('db_credentials.php');
 
     function db_connect() {
